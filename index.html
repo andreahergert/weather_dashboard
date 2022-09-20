@@ -23,30 +23,22 @@
     <div class="container">
         <div class="row">
             <!-- Search for a city on left -->
-            <div class="col-2">
+            <div class="col-sm-3">
                 <h2 class="display">Search for a city:</h2>
-                <div class="input">
-                    <textarea id="city-input"></textarea>
-                    <button id="btncurent">Search</button>
-                </div>
-                <div class="previous-input">
-                    <button id="btnprevious"></button>
-                </div>
+                <form id="search-form" class="form">
+                    <input id="search-input" class="form-input" type="text" placeholder="Seattle">
+                    <button class="btn btn-info btn-primary btn-block">Search</button>
+                </form>
+                <div class = "past-search border" id = "past-search-buttons"></div>
             </div>
 
             <!-- Current city with weather displayed -->
-            <div class="col-10">
-                <h2 class="display">Placeholder current city</h2>
+            <div class="col-sm-9">
+                <h2 id="result-text-current"></h2>
+                <div id="result-content"></div>
                 <!-- Current city 5-Day Forecast -->
-                <h3 class="display">5-Day Forecast:</h3>
-                    <div class="row">
-                    <div class="col-1 card-day">Day 1</div>
-                    <div class="col-1 card-day">Day 2</div>
-                    <div class="col-1 card-day">Day 3</div>
-                    <div class="col-1 card-day">Day 4</div>
-                    <div class="col-1 card-day">Day 5</div>
-                </div>
-
+                <h3 id="result-text-five-day"></h3>
+                <div class = "d-flex" id = "five-day-container"></div>
             </div>
         </div>
     </div>
