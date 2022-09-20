@@ -1,24 +1,14 @@
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
+    font: bolder;
     line-height: 1;
 }
 
-textarea {
-    background: transparent;
-    color: #000000;
-    border-left: 1px solid black;
-}
-
-button {
-    border-radius: 5px;
-    background-color: #06aed5;
-    color: white;
-}
 
 header {
     text-align: center;
-    background-color: navy;
+    background-image: linear-gradient(to right, #3b6ec4,#230455);
     color: white;
     padding: 10px;
 }
