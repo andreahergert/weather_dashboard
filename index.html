@@ -27,7 +27,7 @@
                 <h2 class="display">Search for a city:</h2>
                 <form id="search-form" class="form">
                     <input id="search-input" class="form-input" type="text" placeholder="Seattle">
-                    <button class="btn btn-info btn-primary btn-block">Search</button>
+                    <button class="btn btn-info btn-primary btn-block" id="fetch-button">Search</button>
                 </form>
                 <div class = "past-search border" id = "past-search-buttons"></div>
             </div>
@@ -35,7 +35,10 @@
             <!-- Current city with weather displayed -->
             <div class="col-sm-9">
                 <h2 id="result-text-current"></h2>
-                <div id="result-content"></div>
+                <div id="temp-content"></div>
+                <div id="wind-content"></div>
+                <div id="hum-content"></div>
+                <div id="uv-content"></div>
                 <!-- Current city 5-Day Forecast -->
                 <h3 id="result-text-five-day"></h3>
                 <div class = "d-flex" id = "five-day-container"></div>
