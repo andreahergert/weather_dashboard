@@ -1,24 +1,18 @@
+// var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKey;
+// var uvUrl = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + apiKey;
+// var forecastedUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=current,minutely,hourly,alerts&appid=" + apiKey;
+// weather.fetchWeather ("Seattle") in console
 // Seattle Geocodes Geo coords [47.6062, -122.3321]
-// api key bd55593ecb666c01d38f4ec9276324e8
-// Need Dates (dt) converted to something readable
+// Need Dates (dt) converted to something readable, moment?
 // Need 5-day forecast
 // Need search button to event listen for var weather?
 // Need local storage
 // Need UV Index
-var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q={city name}&units=imperial&appid={API key}";
-var city;
+
+
 var apiKey = "bd55593ecb666c01d38f4ec9276324e8";
-var searchFormEl = document.querySelector('#search-form');
-var searchInputEl = document.querySelector('#search-input');
-var pastSearchButtonEl = document.querySelector("#past-search-buttons");
-var resultTextCurrentEl = document.querySelector('#result-text-current');
-var tempContentEl = document.querySelector('#temp-content');
-var windContentEl = document.querySelector('#wind-content');
-var humContentEl = document.querySelector('#hum-content');
-var uvContentEl = document.querySelector('#uv-content');
-var resultTextFiveDayEl = document.querySelector('#result-text-five-day');
-var resultFiveDayE1 = document.querySelector('#five-day-container');
-var fetchButton = document.getElementById('fetch-button');
+var currentDate = moment().format('l');
+var searchedCities = [];
 
 var weather = {
     fetchWeather: function (city) {
@@ -34,11 +28,5 @@ displayWeather: function(data){
     var { speed } = data.wind;
     var { humidity } = data.main;
     console.log(name, dt, icon, temp, speed, humidity)
-    resultTextCurrentEl.innerText = name +" "+ dt +" "+ icon;
-    tempContentEl.innerText = temp;
-    windContentEl.innerText = speed;
-    humContentEl.innerText = humidity;
 }
 }
-
-
