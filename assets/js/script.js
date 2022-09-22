@@ -16,17 +16,35 @@ var searchedCities = [];
 
 var weather = {
     fetchWeather: function (city) {
-fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKey)
-.then((response) => response.json())
-.then((data) => this.displayWeather(data));
-},
-displayWeather: function(data){
-    var { name } = data;
-    var { dt } = data;
-    var { icon } = data.weather[0];
-    var { temp } = data.main;
-    var { speed } = data.wind;
-    var { humidity } = data.main;
-    console.log(name, dt, icon, temp, speed, humidity)
-}
-}
+        fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKey)
+
+            .then((response) => {
+                if (!response.ok) {
+                    alert("No weather found.");
+                    throw new Error("No weather found.");
+                }
+                return response.json();
+            })
+            .then((data) => this.displayWeather(data));
+    },
+    displayWeather: function (data) {
+        var { name } = data;
+        var { dt } = data;
+        var { icon } = data.weather[0];
+        var { temp } = data.main;
+        var { speed } = data.wind;
+        var { humidity } = data.main;
+        console.log(name, dt, icon, temp, speed, humidity)
+        document.querySelector(".city").innerText = name;
+        document.querySelector(".date").innerText = currentDate;
+        document.querySelector(".icon").src =
+            "https://openweathermap.org/img/wn/" + icon + ".png";
+        document.querySelector(".temp").innerText ="Temp: "+ temp + "°F";
+        document.querySelector(".wind").innerText =
+        "Wind: " + speed + " MPH";
+        document.querySelector(".humidity").innerText =
+            "Humidity: " + humidity + "%";
+    },
+};
+
+weather.fetchWeather("Seattle");
