@@ -1,12 +1,10 @@
 // var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKey;
-// var uvUrl = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + apiKey;
-// var forecastedUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=current,minutely,hourly,alerts&appid=" + apiKey;
 
+// var forecastedUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=current,minutely,hourly,alerts&appid=" + apiKey;
 
 // Seattle Geocodes Geo coords [47.6062, -122.3321]
 // Need 5-day forecast
 // Need local storage
-
 
 
 var apiKey = "bd55593ecb666c01d38f4ec9276324e8";
@@ -17,22 +15,19 @@ var containerEl = document.querySelector("#current-city")
 
 var formSubmitHandler = function (event) {
     event.preventDefault();
-
     var city = cityInputEl.value.trim();
-
     if (city) {
         fetchWeather(city);
-
-        containerEl.textContent = '';
         cityInputEl.value = '';
     } else {
         alert('Please enter a City');
     }
 };
 
+// Fetches weather by city (default is Seattle) from third party api
 var fetchWeather = function (city) {
+    // inserted &units=imperial into link so that this will display fahrenheit 
     fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + apiKey)
-
         .then((response) => {
             if (!response.ok) {
                 alert("No weather found.");
@@ -42,7 +37,7 @@ var fetchWeather = function (city) {
         .then((data) => this.displayWeather(data));
 };
 
-
+// var displayWeather is made by using a function to gather what data we want from the third party api.  
 var displayWeather = function (data) {
     var { name } = data;
     var { icon } = data.weather[0];
@@ -51,8 +46,9 @@ var displayWeather = function (data) {
     var { humidity } = data.main;
     console.log(name, icon, temp, speed, humidity)
     document.querySelector(".city-shown").innerText = name;
-    // currentDate pulled from moment
+    // currentDate pulled from moment due to strange date format from openweather api
     document.querySelector(".date").innerText = currentDate;
+    // icon made by copying the icon url and inserting the specific icon code into the icon field
     document.querySelector(".icon").src =
         "https://openweathermap.org/img/wn/" + icon + ".png";
     document.querySelector(".temp").innerText = "Temp: " + temp + "°F";
@@ -62,5 +58,6 @@ var displayWeather = function (data) {
         "Humidity: " + humidity + "%";
 };
 
+// Default city Seattle on page load
 fetchWeather("Seattle");
 userFormEl.addEventListener('submit', formSubmitHandler);
