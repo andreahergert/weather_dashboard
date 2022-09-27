@@ -89,27 +89,27 @@ var fetchWeatherFiveDay = function (lat, lon) {
 
 };
 
-var displayWeatherFiveDay = function (data) {
-    var { icon } = data.list.weather[0];
-    var { temp } = data.list.main;
-    var { speed } = data.list.wind;
-    var { humidity } = data.list.main;
-    console.log(icon, temp, speed, humidity)
-    // currentDate pulled from moment due to strange date format from openweather api
-    // document.querySelector(".date1").innerText = currentDate;
-    // icon made by copying the icon url and inserting the specific icon code into the icon field
-    document.querySelector(".icon1").src =
-        "https://openweathermap.org/img/wn/" + icon + ".png";
-    document.querySelector(".temp1").innerText = "Temp: " + temp + "°F";
-    document.querySelector(".wind1").innerText =
-        "Wind: " + speed + " MPH";
-    document.querySelector(".humidity1").innerText =
-        "Humidity: " + humidity + "%";
-};
+// var displayWeatherFiveDay = function (data) {
+//     var { icon } = data.list.weather[0];
+//     var { temp } = data.list.main;
+//     var { speed } = data.list.wind;
+//     var { humidity } = data.list.main;
+//     console.log(icon, temp, speed, humidity)
+//     // currentDate pulled from moment due to strange date format from openweather api
+//     // document.querySelector(".date1").innerText = currentDate;
+//     // icon made by copying the icon url and inserting the specific icon code into the icon field
+//     document.querySelector(".icon1").src =
+//         "https://openweathermap.org/img/wn/" + icon + ".png";
+//     document.querySelector(".temp1").innerText = "Temp: " + temp + "°F";
+//     document.querySelector(".wind1").innerText =
+//         "Wind: " + speed + " MPH";
+//     document.querySelector(".humidity1").innerText =
+//         "Humidity: " + humidity + "%";
+// };
 
 
 
 // Default city Seattle on page load
 fetchWeather("Seattle");
-fetchWeatherFiveDay("47.6062", "-122.3321");
+// fetchWeatherFiveDay("47.6062", "-122.3321");
 userFormEl.addEventListener('submit', formSubmitHandler);
