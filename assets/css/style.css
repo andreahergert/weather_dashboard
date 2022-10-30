@@ -5,10 +5,35 @@ body {
     line-height: 1;
 }
 
-
 header {
     text-align: center;
-    background-image: linear-gradient(to right, #3b6ec4,#230455);
+    background-image: linear-gradient(to right, #3b6ec4, #230455);
     color: white;
     padding: 10px;
+}
+
+.list-group {
+    cursor: pointer;
+}
+
+#future-weather-card {
+    background-color: #3260b0;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        display: grid;
+    }
+
+    section {
+        display: block;
+    }
+
+    .row {
+        display: block;
+    }
+
+    .col-6 {
+        max-width: 100%;
+    }
 }
