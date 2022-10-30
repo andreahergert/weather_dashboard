@@ -14,7 +14,7 @@ The user will be presented with the default forecast for Seattle.  The user may 
 
 Screenshot of website:
 
-![Screenshot](assets/images/screenshot1.png)
+![Screenshot](assets/images/screenshot2.png)
 
 
 ## License
